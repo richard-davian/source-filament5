@@ -28,6 +28,7 @@ class AppSettingSeeder extends Seeder
                 'phone' => null,
                 'whatsapp_number' => null,
                 'address' => null,
+                'map_url' => null,
                 'map_embed_code' => null,
 
                 'copyright_text' => '© ' . date('Y') . ' My Application. All rights reserved.',

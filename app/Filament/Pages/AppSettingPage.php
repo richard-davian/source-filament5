@@ -118,9 +118,15 @@ class AppSettingPage extends Page implements HasForms
                                         ->rows(3)
                                         ->columnSpanFull(),
 
+                                    TextInput::make('map_url')
+                                        ->label('Map URL')
+                                        ->url()
+                                        ->maxLength(255)
+                                        ->helperText('A location link from Google Maps, OpenStreetMap, or another map service.'),
+
                                     Textarea::make('map_embed_code')
                                         ->label('Map Embed Code')
-                                        ->helperText('Salin seluruh kode <iframe> dari Google Maps (klik Share > Embed a map > Copy HTML).')
+                                        ->helperText('Paste the <iframe> embed code from Google Maps, OpenStreetMap, or another map service that supports embedding.')
                                         ->rows(3)
                                         ->columnSpanFull(),
                                 ]),

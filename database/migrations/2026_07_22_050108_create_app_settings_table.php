@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('phone', 30)->nullable();
             $table->string('whatsapp_number', 30)->nullable();
             $table->text('address')->nullable();
+            $table->string('map_url', 255)->nullable();
             $table->text('map_embed_code')->nullable();
 
             // Legal & Compliance
