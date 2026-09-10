@@ -27,7 +27,7 @@ class BannersTable
                     ->disk('public')
                     ->imageWidth(50)
                     ->imageHeight(50)
-                    ->default(asset('images/image-thumbnail.jpg'))
+                    ->default(asset('images/no-image.jpg'))
                     ->circular(),
                 IconColumn::make('is_active')
                     ->label('Is Active')

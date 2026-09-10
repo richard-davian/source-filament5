@@ -34,7 +34,7 @@ class UsersTable
                     ->disk('public')
                     ->imageWidth(50)
                     ->imageHeight(50)
-                    ->default(asset('images/image-thumbnail.jpg'))
+                    ->default(asset('images/user.png'))
                     ->circular(),
                 TextColumn::make('name')
                     ->label('Name')

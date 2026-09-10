@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->favicon(function () {
                 $favicon = appSettings()->favicon_url;
-                return $favicon ? Storage::disk('public')->url($favicon) : asset('images/favicon-r.webp');
+                return $favicon ? Storage::disk('public')->url($favicon) : asset('images/favicon.webp');
             })
             ->brandName(function () {
                 $appName = appSettings()->app_name;
