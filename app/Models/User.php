@@ -15,9 +15,12 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Concerns\HasPublicUuid;
+use App\Observers\UserObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 
 #[Fillable(['name', 'email', 'password', 'avatar_url', 'uuid', 'username', 'tenant_id'])]
 #[Hidden(['password', 'remember_token'])]
+#[ObservedBy(UserObserver::class)]
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     /** @use HasFactory<UserFactory> */
