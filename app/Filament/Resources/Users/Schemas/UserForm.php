@@ -28,22 +28,26 @@ class UserForm
                     ->openable()
                     ->downloadable()
                     ->columnSpanFull(),
+
                 TextInput::make('name')
                     ->label('Name')
                     ->required()
                     ->maxLength(255),
+
                 TextInput::make('username')
                     ->label('Username')
                     ->required()
                     ->maxLength(255)
                     ->regex('/^[a-zA-Z0-9._]+$/') // only letters, numbers, periods, underscores
                     ->unique(ignoreRecord: true),
+
                 TextInput::make('email')
                     ->label('Email')
                     ->required()
                     ->maxLength(255)
                     ->email()
                     ->unique(ignoreRecord: true),
+
                 TextInput::make('password')
                     ->label('Password')
                     ->required(fn(string $context): bool => $context === 'create')
@@ -53,6 +57,7 @@ class UserForm
                     ->revealable()
                     ->autocomplete('new-password')
                     ->dehydrated(fn($state) => !empty($state)),
+
                 TextInput::make('password_confirmation')
                     ->label('Password Confirmation')
                     ->required(fn(string $context): bool => $context === 'create')
@@ -60,12 +65,14 @@ class UserForm
                     ->minLength(6)
                     ->revealable()
                     ->dehydrated(fn($state) => !empty($state)),
+
                 Select::make('tenant_id')
                     ->label('Tenant')
                     ->nullable()
                     ->relationship('tenant', 'name')
                     ->searchable()
                     ->preload(),
+
                 Select::make('roles')
                     ->label('Roles')
                     ->nullable()

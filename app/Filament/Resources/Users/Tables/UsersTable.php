@@ -36,29 +36,35 @@ class UsersTable
                     ->imageHeight(50)
                     ->default(asset('images/user.png'))
                     ->circular(),
+
                 TextColumn::make('name')
                     ->label('Name')
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('email')
                     ->label('Email')
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('tenant.name')
                     ->label('Tenant')
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('roles.name')
                     ->label('Roles')
                     ->badge()
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->searchable()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()

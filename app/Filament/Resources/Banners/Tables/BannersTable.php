@@ -22,6 +22,7 @@ class BannersTable
                     ->label('Title')
                     ->searchable()
                     ->sortable(),
+
                 ImageColumn::make('image_path')
                     ->label('Image')
                     ->disk('public')
@@ -29,17 +30,20 @@ class BannersTable
                     ->imageHeight(50)
                     ->default(asset('images/no-image.jpg'))
                     ->circular(),
+
                 IconColumn::make('is_active')
                     ->label('Is Active')
                     ->boolean()
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->searchable()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()

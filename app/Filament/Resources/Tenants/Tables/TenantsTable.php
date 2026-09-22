@@ -19,12 +19,14 @@ class TenantsTable
                     ->label('Name')
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->searchable()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()

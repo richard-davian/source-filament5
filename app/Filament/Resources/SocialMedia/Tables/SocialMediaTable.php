@@ -21,22 +21,26 @@ class SocialMediaTable
                     ->label('Platform')
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('url')
                     ->label('URL')
                     ->limit(50)
                     ->searchable()
                     ->sortable(),
+
                 IconColumn::make('is_active')
                     ->label('Is Active')
                     ->boolean()
                     ->searchable()
                     ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->searchable()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()
