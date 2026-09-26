@@ -8,25 +8,13 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\ImageColumn;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder;
+use STS\FilamentImpersonate\Actions\Impersonate;
 
 class UsersTable
 {
     public static function configure(Table $table): Table
     {
-        $user         = Auth::user();
-        $isSuperAdmin = $user->hasRole('super_admin');
-
         return $table
-            ->modifyQueryUsing(function (Builder $query, $livewire) use ($isSuperAdmin) {
-                if (!$isSuperAdmin) {
-                    $query->whereDoesntHave('roles', function ($q) {
-                        $q->where('name', 'super_admin');
-                    });
-                }
-                return $query;
-            })
             ->defaultSort('created_at', 'desc')
             ->columns([
                 ImageColumn::make('avatar_url')
@@ -76,6 +64,7 @@ class UsersTable
                 //
             ])
             ->recordActions([
+                Impersonate::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

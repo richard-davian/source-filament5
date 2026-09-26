@@ -25,6 +25,7 @@ use Filament\Navigation\MenuItem;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use lockscreen\FilamentLockscreen\Lockscreen;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -75,6 +76,10 @@ class AdminPanelProvider extends PanelProvider
                 FilamentShieldPlugin::make()
                     ->navigationGroup('User Management')
                     ->navigationSort(12),
+                Lockscreen::make()
+                    ->enablePlugin()
+                    ->enableIdleTimeout()
+                    ->enableRateLimit(),
                 FilamentEditProfilePlugin::make()
                     ->slug('my-profile')
                     ->setTitle('My Profile')
